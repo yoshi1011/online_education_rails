@@ -44,4 +44,5 @@
 
 # Ignore Docker-related files
 /.dockerignore
-/Dockerfile*
+/Dockerfile.production
+/Dockerfile
