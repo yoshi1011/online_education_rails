@@ -72,4 +72,7 @@ Rails.application.configure do
 
   # deviseのメール設定
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Docker環境下でWebConsoleを表示させるために必要
+  config.web_console.allowed_ips = %w[127.0.0.1 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16]
 end
