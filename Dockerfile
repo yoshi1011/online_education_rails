@@ -5,9 +5,6 @@ FROM ruby:3.3.5
 ENV LANG C.UTF-8
 ENV TZ Asia/Tokyo
 
-RUN mkdir /app
-WORKDIR /app
-
 RUN apt-get update -qq && \
     apt-get install -y sudo git build-essential \
     # Ruby用
@@ -26,12 +23,10 @@ RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz
     npm install -g yarn@$YARN_VERSION && \
     rm -rf /tmp/node-build-master
 
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
+RUN useradd -ms /bin/bash user
+RUN mkdir -p /home/user/app
+RUN chown -R user:user /home/user/app
+USER user
+WORKDIR /home/user/app
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
-
-COPY . .
-
-EXPOSE 3000
+CMD ["/bin/bash"]
