@@ -25,7 +25,7 @@ RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz
 
 RUN useradd -ms /bin/bash user
 RUN mkdir -p /home/user/app
-RUN chown -R user:user /home/user/app
+RUN chown -R user:user /home/user/app $BUNDLE_APP_CONFIG
 USER user
 WORKDIR /home/user/app
 
