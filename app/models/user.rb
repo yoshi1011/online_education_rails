@@ -41,6 +41,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
+  has_many :courses
+
   # パスワード確認を無効にする
   validates_confirmation_of :password, if: :password_required?
 
