@@ -32,10 +32,7 @@
         <% end %>
       </div>
 
-      <div class="flex items-center space-x-4">
-        <%= link_to 'ログイン', new_user_session_path, class: "px-4 py-2 text-gray-700" %>
-        <%= link_to '新規登録', new_user_registration_path, class: 'px-4 py-2 text-white bg-black rounded' %>
-      </div>
+      <%= render(HeaderAuthButtons.new(is_signed_in: user_signed_in?)) %>
     </div>
   </header>
 
