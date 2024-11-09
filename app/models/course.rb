@@ -26,6 +26,9 @@ class Course < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  has_many :course_badges
+  has_many :badges, through: :course_badges
+
   # money-railsを採用している
   monetize :price_cents
 end

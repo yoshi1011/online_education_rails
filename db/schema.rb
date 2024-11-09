@@ -10,12 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_04_160738) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_09_154119) do
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_badges_on_name", unique: true
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "course_badges", force: :cascade do |t|
+    t.integer "course_id", null: false
+    t.integer "badge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_course_badges_on_badge_id"
+    t.index ["course_id", "badge_id"], name: "index_course_badges_on_course_id_and_badge_id", unique: true
+    t.index ["course_id"], name: "index_course_badges_on_course_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -63,6 +81,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_04_160738) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "course_badges", "badges"
+  add_foreign_key "course_badges", "courses"
   add_foreign_key "courses", "categories"
   add_foreign_key "courses", "users"
 end
