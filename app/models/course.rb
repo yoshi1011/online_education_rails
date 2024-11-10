@@ -3,9 +3,12 @@
 # Table name: courses
 #
 #  id             :integer          not null, primary key
+#  average_rating :decimal(2, 1)
 #  description    :string
+#  discarded_at   :datetime
 #  price_cents    :integer          default(0), not null
 #  price_currency :string           default("JPY"), not null
+#  rating_count   :integer          default(0)
 #  title          :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

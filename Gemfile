@@ -36,7 +36,7 @@ group :development do
   gem "web-console"
   gem "rails_live_reload"
   gem "letter_opener_web"
-  gem "annotate"
+  gem "annotaterb"
 end
 
 group :test do
