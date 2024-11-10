@@ -50,6 +50,10 @@ class User < ApplicationRecord
   # パスワード確認を無効にする
   validates_confirmation_of :password, if: :password_required?
 
+  def full_name
+    "#{last_name} #{first_name}"
+  end
+
   protected
 
   def password_required?

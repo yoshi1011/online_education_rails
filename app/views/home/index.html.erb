@@ -45,33 +45,9 @@
 
     <div class="mx-4 my-6">
       <div class="grid grid-cols-4 gap-4">
-        <div class="border rounded overflow-hidden">
-          <%= image_tag 'no-image.jpg', class: 'w-full', alt: 'no-image' %>
-          <div class="p-4">
-            <h3 class="font-bold mb-2">Ruby on Rails 8 マスターコース</h3>
-            <p class="text-sm text-gray-600">Yamada Taro</p>
-            <div class="flex items-center mb-2">
-              <span class="text-amber-500">4.2 ★★★★☆</span>
-              <span class="text-sm text-gray-600">(10,000)</span>
-            </div>
-            <p class="font-bold">¥19,800</p>
-            <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1">ベストセラー</span>
-          </div>
-        </div>
-
-        <div class="border rounded overflow-hidden">
-          <%= image_tag 'no-image.jpg', class: 'w-full', alt: 'no-image' %>
-          <div class="p-4">
-            <h3 class="font-bold mb-2">Python 入門</h3>
-            <p class="text-sm text-gray-600">Yamada Taro</p>
-            <div class="flex items-center mb-2">
-              <span class="text-amber-500">4.2 ★★★★☆</span>
-              <span class="text-sm text-gray-600">(10,000)</span>
-            </div>
-            <p class="font-bold">¥19,800</p>
-          </div>
-        </div>
-        <!-- More course cards... -->
+        <% @courses.each do |course| %>
+          <%= render(Course::PanelCard.new(course: course)) %>
+        <% end %>
       </div>
 
       <%= link_to 'すべてのプログラミングのコースを表示', '#', class: "inline-block mt-8 px-6 py-3 border rounded"%>
