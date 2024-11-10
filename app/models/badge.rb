@@ -2,11 +2,12 @@
 #
 # Table name: badges
 #
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id           :integer          not null, primary key
+#  name         :string
+#  description  :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  discarded_at :datetime
 #
 # Indexes
 #
@@ -14,6 +15,8 @@
 #
 
 class Badge < ApplicationRecord
+  include Discard::Model
+  
   has_many :course_badges, dependent: :destroy
   has_many :courses, through: :course_badges
 end

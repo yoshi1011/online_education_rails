@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_09_155340) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_10_060101) do
   create_table "badges", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
     t.index ["name"], name: "index_badges_on_name", unique: true
   end
 
@@ -23,6 +24,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_09_155340) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
     t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
@@ -47,6 +49,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_09_155340) do
     t.datetime "updated_at", null: false
     t.decimal "average_rating", precision: 2, scale: 1
     t.integer "rating_count", default: 0
+    t.datetime "discarded_at"
     t.index ["category_id"], name: "index_courses_on_category_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
@@ -58,6 +61,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_09_155340) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
     t.index ["course_id"], name: "index_ratings_on_course_id"
     t.index ["user_id", "course_id"], name: "index_ratings_on_user_id_and_course_id", unique: true
     t.index ["user_id"], name: "index_ratings_on_user_id"
@@ -89,6 +93,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_09_155340) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

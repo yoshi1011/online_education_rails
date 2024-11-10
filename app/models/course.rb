@@ -23,6 +23,8 @@
 #  user_id      (user_id => users.id)
 #
 class Course < ApplicationRecord
+  include Discard::Model
+
   belongs_to :user
   belongs_to :category
   has_many :course_badges, dependent: :destroy
