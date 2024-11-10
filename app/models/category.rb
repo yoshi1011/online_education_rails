@@ -3,10 +3,10 @@
 # Table name: categories
 #
 #  id           :integer          not null, primary key
+#  discarded_at :datetime
 #  name         :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  discarded_at :datetime
 #
 # Indexes
 #

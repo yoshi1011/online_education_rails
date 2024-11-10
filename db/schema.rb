@@ -47,7 +47,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_10_143629) do
     t.string "price_currency", default: "JPY", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "average_rating", precision: 2, scale: 1
+    t.decimal "average_rating", precision: 2, scale: 1, default: "0.0"
     t.integer "rating_count", default: 0
     t.datetime "discarded_at"
     t.index ["category_id"], name: "index_courses_on_category_id"

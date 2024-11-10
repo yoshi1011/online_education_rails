@@ -3,11 +3,11 @@
 # Table name: badges
 #
 #  id           :integer          not null, primary key
-#  name         :string
 #  description  :string
+#  discarded_at :datetime
+#  name         :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  discarded_at :datetime
 #
 # Indexes
 #

@@ -3,7 +3,7 @@
 # Table name: courses
 #
 #  id             :integer          not null, primary key
-#  average_rating :decimal(2, 1)
+#  average_rating :decimal(2, 1)    default(0.0)
 #  description    :string
 #  discarded_at   :datetime
 #  price_cents    :integer          default(0), not null

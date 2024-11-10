@@ -10,7 +10,7 @@ class Course::RatingView < ViewComponent::Base
 
   def initialize(average_rating:, rating_count:)
     @rating = render_rating_point(average_rating)
-    @rating_count = number_to_currency(rating_count)
+    @rating_count = number_with_delimiter(rating_count)
   end
 
   private
@@ -18,7 +18,7 @@ class Course::RatingView < ViewComponent::Base
   def render_rating_point(average_rating)
     rating_point = average_rating.floor
     filled_rating = "\u2605" * rating_point
-    outlined_rating = '☆' * (MAX_RATING_POINT - rating_point)
+    outlined_rating = "\u2606" * (MAX_RATING_POINT - rating_point)
     "#{average_rating} #{filled_rating}#{outlined_rating}"
   end
 end

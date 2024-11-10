@@ -8,7 +8,7 @@ class Course::PanelCard < ViewComponent::Base
         <h3 class="font-bold mb-2"><%= @course.title %></h3>
         <p class="text-sm text-gray-600"><%= @instructor_name %></p>
         <div class="flex items-center mb-2">
-          <%= Course::RatingView.new(average_rating: @average_rating, rating_count: @rating_count) %>
+          <%= render(Course::RatingView.new(average_rating: @average_rating, rating_count: @rating_count)) %>
         </div>
         <p class="font-bold"><%= @course.price.format %></p>
 
