@@ -14,6 +14,6 @@
 #
 
 class Badge < ApplicationRecord
-  has_many :course_badges
+  has_many :course_badges, dependent: :destroy
   has_many :courses, through: :course_badges
 end

@@ -25,9 +25,9 @@
 class Course < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_many :course_badges
+  has_many :course_badges, dependent: :destroy
   has_many :badges, through: :course_badges
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
 
   # money-railsを採用している
   monetize :price_cents
