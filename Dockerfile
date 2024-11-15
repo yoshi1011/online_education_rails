@@ -1,5 +1,7 @@
 # devcontainerがJetBrainsで利用できるようになるまでの一時的に利用するDockerfile
 # インストールするパッケージはRailsのdevcontainerを参考にしています。
+# 2024-11-16 JetBrains 2024.03でrails newで作成されたdevcontainerの利用体験が向上したため、
+# 基本的に開発ではdevcontainerでの環境を使うこととする
 FROM ruby:3.3.5
 
 ENV LANG C.UTF-8
